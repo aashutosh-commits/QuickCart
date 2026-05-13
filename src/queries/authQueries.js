@@ -13,7 +13,7 @@ export const useVerifyOTP = () => {
   const dispatch = useDispatch();
 
   return useMutation({
-    mutationFn: ({ phoneNumber, otp }) => authService.verifyOTP(phoneNumber, otp),
+    mutationFn: (accessToken) => authService.verifyOTP(accessToken),
     onSuccess: (data) => {
       if (data.status === 'success') {
         dispatch(setAuth({ user: data.data.user, token: data.token }));
