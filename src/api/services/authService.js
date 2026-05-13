@@ -5,8 +5,8 @@ const authService = {
     const response = await apiClient.post('/auth/send-otp', { phoneNumber });
     return response.data;
   },
-  verifyOTP: async (phoneNumber, otp) => {
-    const response = await apiClient.post('/auth/verify-otp', { phoneNumber, otp });
+  verifyOTP: async (accessToken) => {
+    const response = await apiClient.post('/auth/verify-otp', { accessToken });
     return response.data;
   },
   // Add other auth methods like refreshToken here if needed
